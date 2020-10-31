@@ -1,4 +1,5 @@
 import i18n from "i18next";
+import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from "react-i18next";
 
 // the translations
@@ -6,17 +7,22 @@ import { initReactI18next } from "react-i18next";
 const resources = {
     en: {
         translation: {
-            "Welcome to React": "Welcome to React and react-i18next"
+            "Welcome to React": "Welcome to React and react-i18next",
+            "nav_home": "Home",
+            "nav_challenges": "Challenges"
         }
     },
     pl: {
         translation: {
-            "Welcome to React": "Witamy w React i react-i18next"
+            "Welcome to React": "Witamy w React i react-i18next",
+            "nav_home": "Strona Główna",
+            "nav_challenges": "Wyzwania"
         }
     }
 };
 
 i18n
+    .use(LanguageDetector)
     .use(initReactI18next) // passes i18n down to react-i18next
     .init({
         detection: {
@@ -25,9 +31,9 @@ i18n
 
             // keys or params to lookup language from
             lookupQuerystring: 'lng',
-            lookupCookie: 'i18next',
-            lookupLocalStorage: 'i18nextLng',
-            lookupSessionStorage: 'i18nextLng',
+            lookupCookie: 'fortnite_i18next',
+            lookupLocalStorage: 'fortnite_i18nextLng',
+            lookupSessionStorage: 'fortnite_i18nextLng',
             lookupFromPathIndex: 0,
             lookupFromSubdomainIndex: 0,
 

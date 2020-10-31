@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { configAPI } from '../config';
+import i18n from '../i18n';
 
-export default class challengesViews extends Component {
+class ChallengesViews extends Component {
+
+    componentDidMount() {
+        document.title = 'Fortnite | Challenges';
+        this.getAPI();
+    }
 
     getAPI = async () => {
         try {
-            const API = await fetch(`${configAPI.gateway}https://fortniteapi.io/v1/challenges?season=current&lang=en`, {
+            const API = await fetch(`${configAPI.gateway}https://fortniteapi.io/v1/challenges?season=current&lang=${i18n.language}`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': configAPI.key
@@ -18,10 +24,6 @@ export default class challengesViews extends Component {
         }
     }
 
-    componentDidMount() {
-        this.getAPI();
-    }
-
     render() {
         return (
             <div>
@@ -30,3 +32,5 @@ export default class challengesViews extends Component {
         );
     };
 };
+
+export default ChallengesViews;

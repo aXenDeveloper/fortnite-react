@@ -1,7 +1,9 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 
-const homeView = ({ t }) => {
+const HomeView = ({ t }) => {
+    document.title = "Fortnite"
+
     return (
         <div>
             <h1>{t('Welcome to React')}</h1>
@@ -9,4 +11,4 @@ const homeView = ({ t }) => {
     );
 };
 
-export default withTranslation()(homeView);
+export default withTranslation()(HomeView);
