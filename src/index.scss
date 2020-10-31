@@ -1,0 +1,48 @@
+:root {
+  --container--width: 1340px;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  font-family: 'OpenSans', sans-serif, arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+}
+
+.container {
+  max-width: var(--container--width);
+  padding: 0 15px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.header {
+  background-color: #000;
+  padding: 1rem;
+
+  .container {
+    display: flex;
+    align-items: center;
+  }
+
+  &_nav {
+    ul {
+      display: flex;
+      list-style: none;
+
+      li {
+        padding: 1rem;
+      }
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
