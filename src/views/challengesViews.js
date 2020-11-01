@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import { configAPI } from '../config';
 import i18n from '../i18n';
 
-class ChallengesViews extends Component {
+const ChallengesViews = () => {
 
-    componentDidMount() {
-        document.title = 'Fortnite | Challenges';
-        this.getAPI();
-    }
+    document.title = 'Fortnite | Challenges';
 
-    getAPI = async () => {
+    useEffect(() => {
+        getAPI();
+    }, []);
+
+    const [items, setItems] = useState([]);
+
+
+    const getAPI = async () => {
         try {
             const API = await fetch(`${configAPI.gateway}https://fortniteapi.io/v1/challenges?season=current&lang=${i18n.language}`, {
                 headers: {
@@ -19,18 +23,23 @@ class ChallengesViews extends Component {
             });
             const data = await API.json();
             console.log(data);
+
+
+            setItems(Object.values(data.weeks));
         } catch (err) {
             console.error(err);
         }
     }
 
-    render() {
-        return (
-            <div>
-                challenges
-            </div>
-        );
-    };
+    return (
+        <div>
+            {items.map(el => (
+                <div>
+                    {el.name}
+                </div>
+            ))}
+        </div>
+    );
 };
 
 export default ChallengesViews;
