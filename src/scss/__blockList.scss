@@ -7,22 +7,31 @@
         padding: 0;
         margin: 0;
         width: 280px;
+        background-color: #ecf2f4;
+
+        &\:current {
+            background-color: #fff;
+            border-color: transparent;
+        }
 
         li {
             padding: 15px 0 15px 15px;
             cursor: pointer;
+            border-top: 2px solid rgba(0, 0, 0, 0.075);
+            font-size: 20px;
+            line-height: 1;
+            font-weight: 500;
         }
 
-        li:not(:last-child) {
-            border-bottom: 2px solid rgba(0, 0, 0, 0.075);
-        }
-
-        &\:current {
-            background: #f9f9f9;
+        li.block_list_nav\:current,
+        li:first-child {
+            border-color: transparent;
         }
     }
 
     &_content {
         flex: 1;
+        padding: 2rem;
+        background-color: #fff;
     }
 }

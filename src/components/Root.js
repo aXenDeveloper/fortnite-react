@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import HomeView from '../views/HomeView';
-import ChallengesView from '../views/ChallengesViews';
+import ChallengesView from '../views/ChallengesView';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Nav from './Nav';
 import logo from '../assets/logo.png';
