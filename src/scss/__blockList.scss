@@ -1,0 +1,28 @@
+.block_list {
+    display: flex;
+    padding: 1rem;
+
+    &_nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 280px;
+
+        li {
+            padding: 15px 0 15px 15px;
+            cursor: pointer;
+        }
+
+        li:not(:last-child) {
+            border-bottom: 2px solid rgba(0, 0, 0, 0.075);
+        }
+
+        &\:current {
+            background: #f9f9f9;
+        }
+    }
+
+    &_content {
+        flex: 1;
+    }
+}

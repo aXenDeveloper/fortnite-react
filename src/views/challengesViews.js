@@ -32,7 +32,7 @@ const ChallengesViews = () => {
     }
 
     return (
-        <div>
+        <div className="container">
             {items.map(el => (
                 <div>
                     {el.name}

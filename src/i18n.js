@@ -1,23 +1,17 @@
 import i18n from "i18next";
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from "react-i18next";
+import translationEN from './lang/en/translation';
+import translationPL from './lang/pl/translation';
 
 // the translations
 // (tip move them in a JSON file and import them)
 const resources = {
     en: {
-        translation: {
-            "Welcome to React": "Welcome to React and react-i18next",
-            "nav_home": "Home",
-            "nav_challenges": "Challenges"
-        }
+        translation: translationEN
     },
     pl: {
-        translation: {
-            "Welcome to React": "Witamy w React i react-i18next",
-            "nav_home": "Strona Główna",
-            "nav_challenges": "Wyzwania"
-        }
+        translation: translationPL
     }
 };
 

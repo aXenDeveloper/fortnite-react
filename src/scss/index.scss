@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/open-sans-v18-latin-regular.eot');
+  src: local('Open Sans Regular'), local('OpenSans-Regular'),
+    url('../assets/fonts/open-sans-v18-latin-regular.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/open-sans-v18-latin-regular.woff2') format('woff2'),
+    url('../assets/fonts/open-sans-v18-latin-regular.woff') format('woff'),
+    url('../assets/fonts/open-sans-v18-latin-regular.ttf') format('truetype'),
+    url('../assets/fonts/open-sans-v18-latin-regular.svg#OpenSans') format('svg');
+}
+
+:root {
+  --container--width: 1340px;
+  --header--height: 5rem;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif, arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  background-color: #f9fafe;
+}
+
+.container {
+  max-width: var(--container--width);
+  padding: 0 15px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.box {
+  box-shadow: 0px 2px 4px -1px rgba(29, 29, 29, 0.1);
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+@import './_header';
+@import './_blockList';
