@@ -1,11 +1,16 @@
 {
-  "name": "fortnite",
+  "name": "react-fortnite",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+    "@testing-library/react": "^11.1.1",
+    "@testing-library/user-event": "^12.2.0",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.19.3",
+    "@types/react": "^16.9.55",
+    "@types/react-dom": "^16.9.9",
+    "@types/react-router-dom": "^5.1.6",
     "i18n": "^0.13.2",
     "i18next": "^19.8.3",
     "i18next-browser-languagedetector": "^6.0.1",
@@ -13,9 +18,9 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-i18next": "^11.7.3",
-    "react-router-dom": "^5.2.0",
+    "react-router-app": "^0.1.6",
     "react-scripts": "4.0.0",
-    "styled-components": "^5.2.1",
+    "typescript": "^4.0.5",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
