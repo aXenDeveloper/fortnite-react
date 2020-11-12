@@ -1,25 +1,23 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { configAPI } from '../config';
 import Tabs from '../components/Tabs';
 import i18n from '../i18n';
 import LoadingView from './LoadingView';
 
-class ChallengesViews extends Component {
-    state = {
-        loading: false,
-        items: []
-    }
+const ChallengesViews = () => {
 
-    componentDidMount() {
+    const [loading, setLoading] = useState(false);
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
         document.title = 'Fortnite | Challenges';
-        this.getAPI();
-    }
+        getAPI();
+    }, []);
 
-    getAPI = async () => {
+
+    const getAPI = async () => {
         try {
-            this.setState({
-                loading: true
-            });
+            setLoading(true);
             const API = await fetch(`${configAPI.gateway}https://fortniteapi.io/v1/challenges?season=current&lang=${i18n.language}`, {
                 headers: {
                     'Content-Type': 'application/json',
@@ -29,24 +27,20 @@ class ChallengesViews extends Component {
             const data = await API.json();
             console.log(data);
 
-
-            this.setState({
-                items: Object.values(data.weeks),
-                loading: false
-            })
+            setItems(Object.values(data.weeks));
+            setLoading(false);
         } catch (err) {
             console.error(err);
         }
     }
 
-    render() {
-        return (
-            <div className="container">
+    return (
+        <div className="container">
                 <h1>Test</h1>
 
-                {this.state.loading ? <LoadingView /> : (
+                {loading ? <LoadingView /> : (
                     <Tabs>
-                        {this.state.items.map((el, index) => (
+                        {items.map((el, index) => (
 
                             <div key={el.name} label={index} label_title={el.name}>
                                 {el.challenges.map(e => (
@@ -60,8 +54,7 @@ class ChallengesViews extends Component {
                     </Tabs>
                 )}
             </div>
-        )
-    };
+    )
 };
 
 export default ChallengesViews;
