@@ -9,6 +9,9 @@ const Nav = ({ t }) => (
                 <Link to="/">{t('nav_home')}</Link>
             </li>
             <li>
+                <Link to="/shop">{t('nav_shop')}</Link>
+            </li>
+            <li>
                 <Link to="/challenges">{t('nav_challenges')}</Link>
             </li>
         </ul>

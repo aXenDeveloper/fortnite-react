@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import HomeView from '../views/homeView';
-import ChallengesView from '../views/ChallengesView';
+import ShopView from '../views/shopView';
+import ChallengesView from '../views/challengesView';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Nav from './Nav';
 import logo from '../assets/logo.png';
@@ -35,6 +36,10 @@ const Root = () => {
 			<main>
 				<Switch>
 					<Route exact path='/' component={HomeView} />
+					<Route
+						path='/shop'
+						component={() => <ShopView />}
+					/>
 					<Route
 						path='/challenges'
 						component={() => <ChallengesView />}

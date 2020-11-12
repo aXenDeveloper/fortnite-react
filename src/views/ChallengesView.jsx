@@ -18,17 +18,19 @@ const ChallengesViews = () => {
     const getAPI = async () => {
         try {
             setLoading(true);
-            const API = await fetch(`${configAPI.gateway}https://fortniteapi.io/v1/challenges?season=current&lang=${i18n.language}`, {
+            
+            await fetch(`${configAPI.gateway}https://fortniteapi.io/v1/challenges?season=current&lang=${i18n.language}`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': configAPI.key
                 }
-            });
-            const data = await API.json();
-            console.log(data);
-
-            setItems(Object.values(data.weeks));
-            setLoading(false);
+            })
+                .then(res => res.json())
+                .then(res => {
+                    console.log(res);
+                    setItems(Object.values(res.weeks));
+                    setLoading(false);
+                });
         } catch (err) {
             console.error(err);
         }
