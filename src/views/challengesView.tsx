@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { configAPI } from '../config';
 import Tabs from '../components/Tabs';
-import i18n from '../i18n';
 import LoadingView from './LoadingView';
+import { configAPI } from '../config';
+import i18n from '../i18n';
 
 const ChallengesViews = (): JSX.Element => {
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState<boolean>(false);
 	const [items, setItems] = useState([]);
 
 	useEffect(() => {

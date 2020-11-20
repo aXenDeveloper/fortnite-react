@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import HomeView from '../views/homeView';
-import ShopView from '../views/shopView';
-import ChallengesView from '../views/challengesView';
+import React from 'react';
+import HomeView from '../views/HomeView';
+import ShopView from '../views/ShopView';
+import ChallengesView from '../views/ChallengesView';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Nav from './Nav';
 import logo from '../assets/logo.png';
@@ -10,11 +10,8 @@ import i18n from '../i18n';
 import Lang from './Lang';
 
 const Root = (): JSX.Element => {
-	const [lang, setLang] = useState<string>(i18n.language);
-
 	const changeLanguage = (lng: string): void => {
 		i18n.changeLanguage(lng);
-		setLang(i18n.language);
 	};
 
 	return (
