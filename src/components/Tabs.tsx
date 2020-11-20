@@ -15,25 +15,25 @@ const Tabs = ({ children }: TabsType): JSX.Element => {
 	return (
 		<div className='block_list'>
 			<ul className='block_list_nav'>
-				{children.map(el => (
+				{children.map((el: any) => (
 					<li
-						key={el.props.label}
-						onClick={e => handleClick(e, el.props.label)}
+						key={el.props['data-label']}
+						onClick={e => handleClick(e, el.props['data-label'])}
 						className={
-							el.props.label === activeTab
+							el.props['data-label'] === activeTab
 								? 'block_list_nav:current'
 								: ''
 						}>
-						{el.props.label_title}
+						{el.props['data-label_title']}
 					</li>
 				))}
 			</ul>
 
 			{children.map(el => {
-				if (el.props.label === activeTab) {
+				if (el.props['data-label'] === activeTab) {
 					return (
 						<div
-							key={el.props.label}
+							key={el.props['data-label']}
 							className='block_list_content'>
 							{el}
 						</div>

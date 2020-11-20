@@ -14,13 +14,13 @@ const HomeView = ({ t }: HomeViewType): JSX.Element => {
 			<h1>{t('Welcome to React')}</h1>
 
 			<Tabs>
-				<div label={0} label_title='Tab 1'>
+				<div data-label={0} data-label_title='Tab 1'>
 					test1
 				</div>
-				<div label={1} label_title='Tab 2'>
+				<div data-label={1} data-label_title='Tab 2'>
 					test2
 				</div>
-				<div label={2} label_title='Tab 3'>
+				<div data-label={2} data-label_title='Tab 3'>
 					test3
 				</div>
 			</Tabs>

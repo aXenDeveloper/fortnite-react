@@ -45,13 +45,18 @@ const ChallengesViews = (): JSX.Element => {
 				<LoadingView />
 			) : (
 				<Tabs>
-					{items.map((el: any, index: any): JSX.Element => (
-						<div key={el.name} label={index} label_title={el.name}>
-							{el.challenges.map((e: any) => (
-								<div key={e.quest_id}>{e.title}</div>
-							))}
-						</div>
-					))}
+					{items.map(
+						(el: any, index: any): JSX.Element => (
+							<div
+								key={el.name}
+								data-label={index}
+								data-label_title={el.name}>
+								{el.challenges.map((e: any) => (
+									<div key={e.quest_id}>{e.title}</div>
+								))}
+							</div>
+						)
+					)}
 				</Tabs>
 			)}
 		</div>
