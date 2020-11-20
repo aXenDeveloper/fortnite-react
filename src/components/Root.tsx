@@ -9,10 +9,10 @@ import { Link } from 'react-router-dom';
 import i18n from '../i18n';
 import Lang from './Lang';
 
-const Root = () => {
-	const [lang, setLang] = useState(i18n.language)
+const Root = (): JSX.Element => {
+	const [lang, setLang] = useState<string>(i18n.language);
 
-	const changeLanguage = lng => {
+	const changeLanguage = (lng: string): void => {
 		i18n.changeLanguage(lng);
 		setLang(i18n.language);
 	};
@@ -36,10 +36,7 @@ const Root = () => {
 			<main>
 				<Switch>
 					<Route exact path='/' component={HomeView} />
-					<Route
-						path='/shop'
-						component={() => <ShopView />}
-					/>
+					<Route path='/shop' component={() => <ShopView />} />
 					<Route
 						path='/challenges'
 						component={() => <ChallengesView />}
@@ -48,6 +45,6 @@ const Root = () => {
 			</main>
 		</BrowserRouter>
 	);
-}
+};
 
 export default Root;
