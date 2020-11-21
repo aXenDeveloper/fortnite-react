@@ -1,26 +1,31 @@
 .block_list {
     display: flex;
-    padding: 1rem;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.1);
 
     &_nav {
         list-style: none;
         padding: 0;
         margin: 0;
         width: 280px;
-        background-color: #ecf2f4;
+        color: #fff;
 
-        &\:current {
-            background-color: #fff;
-            border-color: transparent;
-        }
-
-        li {
+        &_item {
             padding: 15px 0 15px 15px;
             cursor: pointer;
-            border-top: 2px solid rgba(0, 0, 0, 0.075);
+            border-top: 2px solid rgba(0, 0, 0, 0.1);
             font-size: 20px;
             line-height: 1.5;
             font-weight: 500;
+
+            &\:current {
+                background-color: rgba(0, 0, 0, 0.1);
+                border-color: transparent;
+            }
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.2);
+            }
         }
 
         li.block_list_nav\:current,
@@ -32,6 +37,7 @@
     &_content {
         flex: 1;
         padding: 2rem;
-        background-color: #fff;
+        background-color: rgba(0, 0, 0, 0.1);
+        color: #fff;
     }
 }

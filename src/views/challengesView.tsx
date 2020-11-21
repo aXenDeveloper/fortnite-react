@@ -73,7 +73,7 @@ const ChallengesViews = ({ t }: ChallengesViewsType): JSX.Element => {
 														<FontAwesomeIcon
 															icon={faUsers}
 														/>{' '}
-														Party assist
+														{t('challenges_assist')}
 													</div>
 												)}
 											</div>

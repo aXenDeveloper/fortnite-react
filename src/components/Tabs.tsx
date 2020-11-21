@@ -19,11 +19,11 @@ const Tabs = ({ children }: TabsType): JSX.Element => {
 					<li
 						key={el.props['data-label']}
 						onClick={e => handleClick(e, el.props['data-label'])}
-						className={
+						className={`block_list_nav_item${
 							el.props['data-label'] === activeTab
-								? 'block_list_nav:current'
+								? ' block_list_nav_item:current'
 								: ''
-						}>
+						}`}>
 						{el.props['data-label_title']}
 					</li>
 				))}
