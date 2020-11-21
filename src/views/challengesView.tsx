@@ -2,9 +2,16 @@ import React, { useState, useEffect } from 'react';
 import Tabs from '../components/Tabs';
 import LoadingView from './LoadingView';
 import { configAPI } from '../config';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import i18n from '../i18n';
+import { withTranslation } from 'react-i18next';
 
-const ChallengesViews = (): JSX.Element => {
+type ChallengesViewsType = {
+	t(el: string): string;
+};
+
+const ChallengesViews = ({ t }: ChallengesViewsType): JSX.Element => {
 	const [loading, setLoading] = useState<boolean>(false);
 	const [items, setItems] = useState([]);
 
@@ -39,7 +46,7 @@ const ChallengesViews = (): JSX.Element => {
 
 	return (
 		<div className='container'>
-			<h1>Test</h1>
+			<h1>{t('challenges_title_week')}</h1>
 
 			{loading ? (
 				<LoadingView />
@@ -51,9 +58,32 @@ const ChallengesViews = (): JSX.Element => {
 								key={el.name}
 								data-label={index}
 								data-label_title={el.name}>
-								{el.challenges.map((e: any) => (
-									<div key={e.quest_id}>{e.title}</div>
-								))}
+								<ul className='challenges_week'>
+									{el.challenges.map((e: any) => (
+										<li
+											key={e.quest_id}
+											className='challenges_week_item'>
+											<div className='challenges_week_item_title'>
+												<h3>
+													{e.title} (
+													{e.progress_total})
+												</h3>
+												{e.party_assist && (
+													<div className='challenges_week_item_title:assist'>
+														<FontAwesomeIcon
+															icon={faUsers}
+														/>{' '}
+														Party assist
+													</div>
+												)}
+											</div>
+											<span>
+												{t('challenges_reward')}: {e.xp}
+												xp
+											</span>
+										</li>
+									))}
+								</ul>
 							</div>
 						)
 					)}
@@ -63,4 +93,4 @@ const ChallengesViews = (): JSX.Element => {
 	);
 };
 
-export default ChallengesViews;
+export default withTranslation()(ChallengesViews);

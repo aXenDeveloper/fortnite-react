@@ -1,5 +1,6 @@
 @import './_header';
 @import './_blockList';
+@import './_challenges';
 
 @font-face {
   font-family: 'Open Sans';
@@ -29,7 +30,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
-  background-color: #ecf2f4;
+  background-color: #195fc0;
 }
 
 .container {

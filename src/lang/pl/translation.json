@@ -2,5 +2,7 @@
     "Welcome to React": "Witamy w React i react-i18next",
     "nav_home": "Strona Główna",
     "nav_shop": "Sklep",
-    "nav_challenges": "Wyzwania"
+    "nav_challenges": "Wyzwania",
+    "challenges_reward": "Nagroda",
+    "challenges_title_week": "Wyzwania tygodnia"
 }
