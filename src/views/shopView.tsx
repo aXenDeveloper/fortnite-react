@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import LoadingView from './LoadingView';
 import { configAPI } from '../config';
+import { withTranslation, WithTranslation } from 'react-i18next';
 
-type ShopViewType = {
+interface ShopViewType extends WithTranslation {
+	t(el: string): string;
 	lang: string;
-};
+}
 
-const ShopView = ({ lang }: ShopViewType): JSX.Element => {
+const ShopView = ({ t, lang }: ShopViewType): JSX.Element => {
 	const [loading, setLoading] = useState<boolean>(true);
+	const [itemDaily, setItemDaily] = useState<never[]>([]);
 
 	useEffect(() => {
 		document.title = 'Fortnite | Shop';
@@ -24,6 +27,7 @@ const ShopView = ({ lang }: ShopViewType): JSX.Element => {
 				.then(res => res.json())
 				.then(res => {
 					console.log(res);
+					setItemDaily(res.daily);
 					setLoading(false);
 				});
 		} catch (err) {
@@ -31,7 +35,29 @@ const ShopView = ({ lang }: ShopViewType): JSX.Element => {
 		}
 	}, [lang]);
 
-	return <>{loading ? <LoadingView /> : <div>Test</div>}</>;
+	return (
+		<div className='container'>
+			<h1>{t('nav_shop')}</h1>
+
+			{loading ? (
+				<LoadingView />
+			) : (
+				<>
+					{itemDaily.map((el: any) => (
+						<div key={el.id}>
+							<img src={el.image} alt={el.name} />
+						</div>
+					))}
+
+					{itemDaily.map((el: any) => (
+						<div key={el.id}>
+							<img src={el.full_background} alt={el.name} />
+						</div>
+					))}
+				</>
+			)}
+		</div>
+	);
 };
 
-export default ShopView;
+export default withTranslation()(ShopView);

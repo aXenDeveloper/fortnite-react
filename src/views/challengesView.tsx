@@ -13,7 +13,7 @@ interface ChallengesViewsType extends WithTranslation {
 
 const ChallengesViews = ({ t, lang }: ChallengesViewsType): JSX.Element => {
 	const [loading, setLoading] = useState<boolean>(false);
-	const [challengesWeek, setChallengesWeek] = useState([]);
+	const [challengesWeek, setChallengesWeek] = useState<never[]>([]);
 
 	useEffect(() => {
 		document.title = 'Fortnite | Challenges';
@@ -40,7 +40,7 @@ const ChallengesViews = ({ t, lang }: ChallengesViewsType): JSX.Element => {
 
 	return (
 		<div className='container'>
-			<h1>{t('challenges_title_week')}</h1>
+			<h1>{t('nav_challenges')}</h1>
 
 			{loading ? (
 				<LoadingView />
