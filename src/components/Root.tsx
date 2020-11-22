@@ -36,11 +36,8 @@ const Root = (): JSX.Element => {
 			<main>
 				<Switch>
 					<Route exact path='/' component={HomeView} />
-					<Route path='/shop' component={() => <ShopView />} />
-					<Route
-						path='/challenges'
-						component={() => <ChallengesView />}
-					/>
+					<Route path='/shop' component={() => <ShopView lang={lang} />} />
+					<Route path='/challenges' component={() => <ChallengesView lang={lang} />} />
 				</Switch>
 			</main>
 		</BrowserRouter>

@@ -4,45 +4,39 @@ import LoadingView from './LoadingView';
 import { configAPI } from '../config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
-import i18n from '../i18n';
-import { withTranslation } from 'react-i18next';
+import { withTranslation, WithTranslation } from 'react-i18next';
 
-type ChallengesViewsType = {
+interface ChallengesViewsType extends WithTranslation {
 	t(el: string): string;
-};
+	lang: string;
+}
 
-const ChallengesViews = ({ t }: ChallengesViewsType): JSX.Element => {
+const ChallengesViews = ({ t, lang }: ChallengesViewsType): JSX.Element => {
 	const [loading, setLoading] = useState<boolean>(false);
-	const [items, setItems] = useState([]);
+	const [challengesWeek, setChallengesWeek] = useState([]);
 
 	useEffect(() => {
 		document.title = 'Fortnite | Challenges';
-		getAPI();
-	}, []);
 
-	const getAPI = async () => {
 		try {
 			setLoading(true);
 
-			await fetch(
-				`${configAPI.gateway}https://fortniteapi.io/v1/challenges?season=current&lang=${i18n.language}`,
-				{
-					headers: {
-						'Content-Type': 'application/json',
-						Authorization: configAPI.key
-					}
+			fetch(`${configAPI.gateway}https://fortniteapi.io/v1/challenges?season=current&lang=${lang}`, {
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: configAPI.key
 				}
-			)
+			})
 				.then(res => res.json())
 				.then(res => {
 					console.log(res);
-					setItems(Object.values(res.weeks));
+					setChallengesWeek(Object.values(res.weeks));
 					setLoading(false);
 				});
 		} catch (err) {
 			console.error(err);
 		}
-	};
+	}, [lang]);
 
 	return (
 		<div className='container'>
@@ -52,33 +46,24 @@ const ChallengesViews = ({ t }: ChallengesViewsType): JSX.Element => {
 				<LoadingView />
 			) : (
 				<Tabs>
-					{items.map(
-						(el: any, index: any): JSX.Element => (
-							<div
-								key={el.name}
-								data-label={index}
-								data-label_title={el.name}>
+					{challengesWeek.map(
+						(elNav: any, index: number): JSX.Element => (
+							<div key={elNav.name} data-label={index} data-label_title={elNav.name}>
 								<ul className='challenges_week'>
-									{el.challenges.map((e: any) => (
-										<li
-											key={e.quest_id}
-											className='challenges_week_item'>
+									{elNav.challenges.map((item: any) => (
+										<li key={item.quest_id} className='challenges_week_item'>
 											<div className='challenges_week_item_title'>
 												<h3>
-													{e.title} (
-													{e.progress_total})
+													{item.title} ({item.progress_total})
 												</h3>
-												{e.party_assist && (
+												{item.party_assist && (
 													<div className='challenges_week_item_title:assist'>
-														<FontAwesomeIcon
-															icon={faUsers}
-														/>{' '}
-														{t('challenges_assist')}
+														<FontAwesomeIcon icon={faUsers} /> {t('challenges_assist')}
 													</div>
 												)}
 											</div>
 											<span>
-												{t('challenges_reward')}: {e.xp}
+												{t('challenges_reward')}: {item.xp}
 												xp
 											</span>
 										</li>
