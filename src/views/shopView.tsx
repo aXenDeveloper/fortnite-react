@@ -43,17 +43,19 @@ const ShopView = ({ t, lang }: ShopViewType): JSX.Element => {
 				<LoadingView />
 			) : (
 				<>
-					{itemDaily.map((el: any) => (
-						<div key={el.id}>
-							<img src={el.image} alt={el.name} />
-						</div>
-					))}
+					<div className='shopGrid'>
+						{itemDaily.map((el: any) => (
+							<div className='shopGrid_item' key={el.id}>
+								<img src={el.image} alt={el.name} />
+							</div>
+						))}
 
-					{itemDaily.map((el: any) => (
-						<div key={el.id}>
-							<img src={el.full_background} alt={el.name} />
-						</div>
-					))}
+						{itemDaily.map((el: any) => (
+							<div key={el.id}>
+								<img src={el.full_background} alt={el.name} />
+							</div>
+						))}
+					</div>
 				</>
 			)}
 		</div>

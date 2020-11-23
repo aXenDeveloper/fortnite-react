@@ -37,7 +37,11 @@ const BattlePassView = ({ t, lang }: BattlePassViewType) => {
 		<div className='container'>
 			<h1>{t('nav_battlepass')}</h1>
 
-			{loading ? <LoadingView /> : <div>BattlePassView</div>}
+			<h2>Free</h2>
+			{loading ? <LoadingView /> : <div>BattlePassView Free</div>}
+
+			<h2>Paid</h2>
+			{loading ? <LoadingView /> : <div>BattlePassView Paid</div>}
 		</div>
 	);
 };

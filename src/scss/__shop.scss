@@ -1,0 +1,15 @@
+.shopGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+
+    &_item {
+        justify-self: center;
+    }
+
+    img {
+        width: 300px;
+        height: 300px;
+    }
+}
