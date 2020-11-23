@@ -18,6 +18,9 @@ const Nav = ({ t }: NavType): JSX.Element => (
 			<li>
 				<Link to='/challenges'>{t('nav_challenges')}</Link>
 			</li>
+			<li>
+				<Link to='/battlepass'>{t('nav_battlepass')}</Link>
+			</li>
 		</ul>
 	</nav>
 );

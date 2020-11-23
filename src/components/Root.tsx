@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import HomeView from '../views/HomeView';
 import ShopView from '../views/ShopView';
 import ChallengesView from '../views/ChallengesView';
+import BattlePassView from '../views/BattlePassView';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Nav from './Nav';
 import logo from '../assets/logo.png';
@@ -38,6 +39,7 @@ const Root = (): JSX.Element => {
 					<Route exact path='/' component={HomeView} />
 					<Route path='/shop' component={() => <ShopView lang={lang} />} />
 					<Route path='/challenges' component={() => <ChallengesView lang={lang} />} />
+					<Route path='/battlepass' component={() => <BattlePassView lang={lang} />} />
 				</Switch>
 			</main>
 		</BrowserRouter>
